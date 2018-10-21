@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `portstream` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `portstream`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: portstream
@@ -16,26 +18,18 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `port_call`
+-- Table structure for table `commercial_market`
 --
 
-DROP TABLE IF EXISTS `port_call`;
+DROP TABLE IF EXISTS `commercial_market`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `port_call` (
-  `port_call_id` int(11) NOT NULL,
-  `current_port_country` datetime DEFAULT NULL,
-  `eta` datetime DEFAULT NULL,
-  `destination_port_id` int(11) DEFAULT NULL,
-  `origin_port_id` int(11) DEFAULT NULL,
-  `previous_origin_port_id` int(11) DEFAULT NULL,
-  `vessel_detail_imo` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`port_call_id`),
-  KEY `FKom4iqoa5fx32kh1p618ip1v22` (`destination_port_id`),
-  KEY `FKm593hlrcn84trvloydldpikiq` (`origin_port_id`),
-  KEY `FKlog9wcivfb3scktiu3v66lwpg` (`previous_origin_port_id`),
-  KEY `FK1cpwcoyabkmn72jl6p3d4x26l` (`vessel_detail_imo`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE `commercial_market` (
+  `comm_market_id` int(11) NOT NULL AUTO_INCREMENT,
+  `market_type` varchar(255) DEFAULT NULL,
+  `size_class` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`comm_market_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -47,4 +41,4 @@ CREATE TABLE `port_call` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-20  1:09:49
+-- Dump completed on 2018-10-21 20:05:28

@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `portstream` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `portstream`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: portstream
@@ -16,23 +18,18 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `vessel_detail`
+-- Table structure for table `load_condition`
 --
 
-DROP TABLE IF EXISTS `vessel_detail`;
+DROP TABLE IF EXISTS `load_condition`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `vessel_detail` (
-  `imo` bigint(20) NOT NULL,
-  `capacity_dwt` int(11) DEFAULT NULL,
-  `draught` double DEFAULT NULL,
-  `vessel_name` varchar(255) NOT NULL,
-  `comm_market_id` int(11) DEFAULT NULL,
-  `load_condition_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`imo`),
-  KEY `FK1xcb4q9bjesw5idudd3fu09nr` (`comm_market_id`),
-  KEY `FKbdjxgbl2okl34t3uqee1smb9h` (`load_condition_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE `load_condition` (
+  `load_condition_id` int(11) NOT NULL AUTO_INCREMENT,
+  `load_condition` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`load_condition_id`),
+  UNIQUE KEY `UK_6vg1hwm53ag811wfa1gseye4a` (`load_condition`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -44,4 +41,4 @@ CREATE TABLE `vessel_detail` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-20  1:09:49
+-- Dump completed on 2018-10-21 20:05:28

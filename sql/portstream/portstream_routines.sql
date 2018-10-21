@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `portstream` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `portstream`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: portstream
@@ -16,19 +18,8 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `commercial_market`
+-- Dumping events for database 'portstream'
 --
-
-DROP TABLE IF EXISTS `commercial_market`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `commercial_market` (
-  `comm_market_id` int(11) NOT NULL AUTO_INCREMENT,
-  `market_type` varchar(255) DEFAULT NULL,
-  `size_class` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`comm_market_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -39,4 +30,4 @@ CREATE TABLE `commercial_market` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-20  1:09:49
+-- Dump completed on 2018-10-21 20:05:29

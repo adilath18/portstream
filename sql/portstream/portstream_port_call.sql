@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `portstream` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `portstream`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: portstream
@@ -16,18 +18,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `load_condition`
+-- Table structure for table `port_call`
 --
 
-DROP TABLE IF EXISTS `load_condition`;
+DROP TABLE IF EXISTS `port_call`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `load_condition` (
-  `load_condition_id` int(11) NOT NULL AUTO_INCREMENT,
-  `load_condition` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`load_condition_id`),
-  UNIQUE KEY `UK_6vg1hwm53ag811wfa1gseye4a` (`load_condition`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE `port_call` (
+  `port_call_id` int(11) NOT NULL,
+  `current_port_country` varchar(255) DEFAULT NULL,
+  `eta` datetime DEFAULT NULL,
+  `destination_port_id` int(11) DEFAULT NULL,
+  `origin_port_id` int(11) DEFAULT NULL,
+  `previous_origin_port_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`port_call_id`),
+  KEY `FKom4iqoa5fx32kh1p618ip1v22` (`destination_port_id`),
+  KEY `FKm593hlrcn84trvloydldpikiq` (`origin_port_id`),
+  KEY `FKlog9wcivfb3scktiu3v66lwpg` (`previous_origin_port_id`),
+  CONSTRAINT `FKlog9wcivfb3scktiu3v66lwpg` FOREIGN KEY (`previous_origin_port_id`) REFERENCES `port` (`port_id`),
+  CONSTRAINT `FKm593hlrcn84trvloydldpikiq` FOREIGN KEY (`origin_port_id`) REFERENCES `port` (`port_id`),
+  CONSTRAINT `FKom4iqoa5fx32kh1p618ip1v22` FOREIGN KEY (`destination_port_id`) REFERENCES `port` (`port_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -39,4 +50,4 @@ CREATE TABLE `load_condition` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-20  1:09:49
+-- Dump completed on 2018-10-21 20:05:29
